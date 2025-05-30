@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RecipesApp {
-  internal class CreateRecipeCommand : ICommand {
+  public class CreateRecipeCommand : ICommand {
     private RecipeStorage _storage { get; set; }
     private Recipe _recipe { get; set; }
 

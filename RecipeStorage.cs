@@ -5,12 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RecipesApp {
-  internal class RecipeStorage {
-    private List<Recipe> _recipes = new List<Recipe>();
-    private int _nextId = 1;
+  public class RecipeStorage {
+    private List<Recipe> _recipes;
+    private int _nextId;
+    public RecipeStorage() {
+      _recipes = JsonRecipeStorage.Load() ?? new List<Recipe>(); // Защита от null
+      _nextId = _recipes.Count;
+    }
+
+    public void SaveChanges() {
+      JsonRecipeStorage.Save(_recipes);
+    }
 
     public void AddRecipe(Recipe recipe) {
-      recipe.Id = _nextId++;
+      recipe.Id = ++_nextId;
       _recipes.Add(recipe);
     }
 

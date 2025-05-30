@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RecipesApp {
-  internal class CommandManager {
+  public class CommandManager {
     private Stack<ICommand> _undoStack = new Stack<ICommand>();
     private Stack<ICommand> _redoStack = new Stack<ICommand>();
 
